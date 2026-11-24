@@ -1,0 +1,15 @@
+# Interface
+streamlit>=1.40,<2
+
+# RAG (LangChain 0.3.x)
+langchain-community>=0.3,<0.4
+langchain-core>=0.3,<1.0
+langchain-text-splitters>=0.3,<1.0
+
+# PDF, base vectorielle, embeddings
+pypdf>=5
+chromadb>=0.5,<2
+sentence-transformers>=3
+
+# Sur une machine sans GPU, installer d'abord PyTorch en version CPU :
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu

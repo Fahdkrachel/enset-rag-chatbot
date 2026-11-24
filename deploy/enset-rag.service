@@ -1,0 +1,16 @@
+# Service systemd : démarre l'application automatiquement avec la VM.
+# Installation : voir docs/deploiement-oci.md
+[Unit]
+Description=ENSET RAG ChatBot (Streamlit)
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/enset-rag-chatbot
+ExecStart=/home/ubuntu/enset-rag-chatbot/venv/bin/streamlit run app.py --server.port 8501 --server.address 0.0.0.0 --server.headless true
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
